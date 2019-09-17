@@ -25,7 +25,7 @@ df_movies = spark.read.format("csv").schema(schema_movies).load("/nhatthanh/data
 # stage join
 ra = df_ratings.alias('ra')
 mo = df_movies.alias('mo')
-ratings_movies = ra.join(mo, ra.movieId == mo.ID_movie)
+ratings_movies = ra.join(mo, ra.movieId == mo.ID_movie).encode('utf-8')
 ratings_movies.show()
 
 
