@@ -22,10 +22,13 @@ schema_movies = StructType([
 # stage load data
 df_ratings = spark.read.format("csv").schema(schema_ratings).load("/nhatthanh/data/ml-20m/ratings.csv")
 df_movies = spark.read.format("csv").schema(schema_movies).load("/nhatthanh/data/ml-20m/movies.csv")
+
+df_ratings.show()
+df_movies.show()
 # stage join
-ra = df_ratings.alias('ra')
-mo = df_movies.alias('mo')
-ratings_movies = ra.join(mo, ra.movieId == mo.ID_movie).encode('utf-8')
-ratings_movies.show()
+# ra = df_ratings.alias('ra')
+# mo = df_movies.alias('mo')
+# ratings_movies = ra.join(mo, ra.movieId == mo.ID_movie)
+# ratings_movies.show()
 
 
