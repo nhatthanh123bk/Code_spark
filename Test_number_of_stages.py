@@ -26,6 +26,6 @@ df_movies = spark.read.format("csv").schema(schema_movies).load("/nhatthanh/data
 ra = df_ratings.alias('ra')
 mo = df_movies.alias('mo')
 inner_join = ra.join(mo, ra.movieId == mo.ID_movie)
-
+inner_join.show()
 
 
