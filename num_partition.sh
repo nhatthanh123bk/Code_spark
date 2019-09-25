@@ -30,4 +30,4 @@ do
 		count_partition=0 
 	fi
 
-done < '$list_partitions'
+done < "$list_partitions"
