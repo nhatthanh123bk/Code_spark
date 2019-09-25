@@ -16,17 +16,18 @@ do
 done < "$list_tables"
 
 # statistics number of partitions in tables
+rm -rf number_of_partition
 count_partition=0
 while read line
 do
-	if(($count_partition==0))
+	if([$count_partition -eq 0]))
 	then
 		echo "$line" >> number_of_partition
 	fi
 	count_partition=$((count_partition + 1))
-	if(($line=='----'))
+	if([$line -eq '----'])
 	then
-		echo $((count_partition -1)) >> number_of_partition
+		echo $((count_partition - 1)) >> number_of_partition
 		count_partition=0 
 	fi
 
